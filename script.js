@@ -55,6 +55,7 @@ if(form){
     carNumber,
     interactive,
     songs
+    })
 });
 
     if(result) result.textContent = name + ", спасибо! Ваш ответ отправлен.";
