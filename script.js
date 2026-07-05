@@ -32,6 +32,7 @@ if(form){
     e.preventDefault();
 
     const name = document.getElementById("guestName")?.value.trim() || "";
+    const companion = document.getElementById("guestCompanion")?.value.trim() || "";
     const registration = document.querySelector('input[name="registration"]:checked')?.value || "";
     const banquet = document.querySelector('input[name="banquet"]:checked')?.value || "";
     const car = [...document.querySelectorAll('input[name="car"]:checked')].map(i => i.value).join(", ");
@@ -42,18 +43,16 @@ if(form){
 
     if(result) result.textContent = "Отправляем...";
 
-    fetch(WEB_APP_URL, {
-      method: "POST",
-      mode: "no-cors",
-      body: new URLSearchParams({
-        name,
-        registration,
-        banquet,
-        car,
-        carNumber,
-        interactive,
-        songs
-      })
+    body: new URLSearchParams({
+  name,
+  companion,
+  registration,
+  banquet,
+  car,
+  carNumber,
+  interactive,
+  songs
+})
     });
 
     if(result) result.textContent = name + ", спасибо! Ваш ответ отправлен.";
