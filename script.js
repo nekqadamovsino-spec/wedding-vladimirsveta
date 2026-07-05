@@ -43,16 +43,19 @@ if(form){
 
     if(result) result.textContent = "Отправляем...";
 
-    body: new URLSearchParams({
-  name,
-  companion,
-  registration,
-  banquet,
-  car,
-  carNumber,
-  interactive,
-  songs
-    });
+  fetch(WEB_APP_URL, {
+  method: "POST",
+  mode: "no-cors",
+  body: new URLSearchParams({
+    name,
+    companion,
+    registration,
+    banquet,
+    car,
+    carNumber,
+    interactive,
+    songs
+});
 
     if(result) result.textContent = name + ", спасибо! Ваш ответ отправлен.";
     form.reset();
